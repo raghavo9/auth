@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+<h2>list of all the products </h2>
+    <table class ="table table-striped" style="border:2px solid black; "> 
+    <thead>
+        <tr>
+            <th> id</th>
+            <th> prodcuct title</th>
+            <th> product quantity</th>
+            <th> product description</th>
+        </tr>
+    </thead>
+{% for prod in product %}
+        <tr>
+            <td> {{prod.getId()}}</td>
+            <td> {{prod.getProductTitle()}}</td>
+            <td> {{prod.getProductQty()}}</td>
+            <td> {{prod.getProductDescription()}}</td>
+            
+        </tr>
+        
+    {% endfor  %}
+    </table>
+
+<div style="float:left; margin-right:8%; margin-top:5%;">
+<button  class="btn btn-failure" onclick="window.location.href='http://localhost:8000/logout';"> Logout</button>
+</div>
+
+<div style="float:right; margin-right:8%; margin-top:5%;">
+<button  class="btn btn-success" onclick="window.location.href='http://localhost:8000/add_product_form';"> Add Product</button>
+</div>
+
+{% endblock %}
